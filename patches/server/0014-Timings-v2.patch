@@ -6,10 +6,10 @@ Subject: [PATCH] Timings v2
 
 diff --git a/src/main/java/co/aikar/timings/MinecraftTimings.java b/src/main/java/co/aikar/timings/MinecraftTimings.java
 new file mode 100644
-index 0000000000000000000000000000000000000000..3f540dc05315103ef97fd53628f681c67f7e7c2d
+index 0000000000000000000000000000000000000000..59affb62cb487d60e8c3e32decf89d6cb7d22f8d
 --- /dev/null
 +++ b/src/main/java/co/aikar/timings/MinecraftTimings.java
-@@ -0,0 +1,168 @@
+@@ -0,0 +1,169 @@
 +package co.aikar.timings;
 +
 +import com.google.common.collect.MapMaker;
@@ -26,6 +26,7 @@ index 0000000000000000000000000000000000000000..3f540dc05315103ef97fd53628f681c6
 +import java.util.Map;
 +
 +// TODO: Re-implement missing timers
++@Deprecated(forRemoval = true)
 +public final class MinecraftTimings {
 +
 +    public static final Timing serverOversleep = Timings.ofSafe("Server Oversleep");
@@ -180,10 +181,10 @@ index 0000000000000000000000000000000000000000..3f540dc05315103ef97fd53628f681c6
 +}
 diff --git a/src/main/java/co/aikar/timings/TimingsExport.java b/src/main/java/co/aikar/timings/TimingsExport.java
 new file mode 100644
-index 0000000000000000000000000000000000000000..46297ac0a19fd2398ab777a381eff4d0a256161e
+index 0000000000000000000000000000000000000000..c5d8603831490632c46a77a33a15a529d141caf8
 --- /dev/null
 +++ b/src/main/java/co/aikar/timings/TimingsExport.java
-@@ -0,0 +1,385 @@
+@@ -0,0 +1,386 @@
 +/*
 + * This file is licensed under the MIT License (MIT).
 + *
@@ -251,6 +252,7 @@ index 0000000000000000000000000000000000000000..46297ac0a19fd2398ab777a381eff4d0
 +import static co.aikar.util.JSONUtil.toObjectMapper;
 +import static net.kyori.adventure.text.Component.text;
 +
++@Deprecated(forRemoval = true)
 +@SuppressWarnings({"rawtypes", "SuppressionAnnotation"})
 +public class TimingsExport extends Thread {
 +
@@ -571,10 +573,10 @@ index 0000000000000000000000000000000000000000..46297ac0a19fd2398ab777a381eff4d0
 +}
 diff --git a/src/main/java/co/aikar/timings/WorldTimingsHandler.java b/src/main/java/co/aikar/timings/WorldTimingsHandler.java
 new file mode 100644
-index 0000000000000000000000000000000000000000..0fda52841b5e1643efeda92106124998abc4e0aa
+index 0000000000000000000000000000000000000000..2f0d9b953802dee821cfde82d22b0567cce8ee91
 --- /dev/null
 +++ b/src/main/java/co/aikar/timings/WorldTimingsHandler.java
-@@ -0,0 +1,119 @@
+@@ -0,0 +1,120 @@
 +package co.aikar.timings;
 +
 +import net.minecraft.server.level.ServerLevel;
@@ -585,6 +587,7 @@ index 0000000000000000000000000000000000000000..0fda52841b5e1643efeda92106124998
 + * Set of timers per world, to track world specific timings.
 + */
 +// TODO: Re-implement missing timers
++@Deprecated(forRemoval = true)
 +public class WorldTimingsHandler {
 +    public final Timing mobSpawn;
 +    public final Timing doChunkUnload;
@@ -1262,7 +1265,7 @@ index 8784b0702f10eb7582c309c15f18fe13eebd9c8e..6f81aa6b0a835bf10e0d5f2b32fe9fb2
                  this.entityManager.saveAll();
              } else {
 diff --git a/src/main/java/net/minecraft/server/network/ServerGamePacketListenerImpl.java b/src/main/java/net/minecraft/server/network/ServerGamePacketListenerImpl.java
-index 032a21ffd22630c0d4d0456ac651b05105449350..fdb7314784a2232a96a9ccdb049bd240e1cc9b06 100644
+index 6878af0ad58c40f54a216c12b28b990424ecd414..bd6ae5620b3d94dfa7f39259018906a3ef7a6ffa 100644
 --- a/src/main/java/net/minecraft/server/network/ServerGamePacketListenerImpl.java
 +++ b/src/main/java/net/minecraft/server/network/ServerGamePacketListenerImpl.java
 @@ -335,7 +335,6 @@ public class ServerGamePacketListenerImpl implements ServerPlayerConnection, Tic

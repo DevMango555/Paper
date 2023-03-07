@@ -138,10 +138,10 @@ index 9a5fa60cb8156fe254a123e237d957ccb82f7195..0f7d36933e34e1d1b9dd27d8b0c35ff8
  
      protected static final class LightQueue {
 diff --git a/src/main/java/co/aikar/timings/TimingsExport.java b/src/main/java/co/aikar/timings/TimingsExport.java
-index 46297ac0a19fd2398ab777a381eff4d0a256161e..98171f6c8e23f6ef89b897e4b80e3afb2a1950a0 100644
+index c5d8603831490632c46a77a33a15a529d141caf8..addab9f2fee7e9d98c3adf7b60542a2ad76d4fcf 100644
 --- a/src/main/java/co/aikar/timings/TimingsExport.java
 +++ b/src/main/java/co/aikar/timings/TimingsExport.java
-@@ -162,7 +162,11 @@ public class TimingsExport extends Thread {
+@@ -163,7 +163,11 @@ public class TimingsExport extends Thread {
                  pair("gamerules", toObjectMapper(world.getWorld().getGameRules(), rule -> {
                      return pair(rule, world.getWorld().getGameRuleValue(rule));
                  })),
@@ -155,10 +155,10 @@ index 46297ac0a19fd2398ab777a381eff4d0a256161e..98171f6c8e23f6ef89b897e4b80e3afb
          }));
  
 diff --git a/src/main/java/co/aikar/timings/WorldTimingsHandler.java b/src/main/java/co/aikar/timings/WorldTimingsHandler.java
-index 0fda52841b5e1643efeda92106124998abc4e0aa..fe79c0add4f7cb18d487c5bb9415c40c5b551ea2 100644
+index 2f0d9b953802dee821cfde82d22b0567cce8ee91..22687667ec69a954261e55e59261286ac1b8b8cd 100644
 --- a/src/main/java/co/aikar/timings/WorldTimingsHandler.java
 +++ b/src/main/java/co/aikar/timings/WorldTimingsHandler.java
-@@ -58,6 +58,16 @@ public class WorldTimingsHandler {
+@@ -59,6 +59,16 @@ public class WorldTimingsHandler {
  
      public final Timing miscMobSpawning;
  
@@ -175,7 +175,7 @@ index 0fda52841b5e1643efeda92106124998abc4e0aa..fe79c0add4f7cb18d487c5bb9415c40c
      public WorldTimingsHandler(Level server) {
          String name = ((PrimaryLevelData) server.getLevelData()).getLevelName() + " - ";
  
-@@ -111,6 +121,16 @@ public class WorldTimingsHandler {
+@@ -112,6 +122,16 @@ public class WorldTimingsHandler {
  
  
          miscMobSpawning = Timings.ofSafe(name + "Mob spawning - Misc");
@@ -15922,7 +15922,7 @@ index e96a0ca47e4701ba187555bd92c968345bc85677..73b96f804079288e9c5fcc11da54e61e
 +    // Paper end
  }
 diff --git a/src/main/java/net/minecraft/server/network/ServerGamePacketListenerImpl.java b/src/main/java/net/minecraft/server/network/ServerGamePacketListenerImpl.java
-index fdb7314784a2232a96a9ccdb049bd240e1cc9b06..8ef64f5192500f87f514c42432c0d5c8361145a7 100644
+index bd6ae5620b3d94dfa7f39259018906a3ef7a6ffa..42ae25f04a8665c95db8c92ee869bc09cde60cd3 100644
 --- a/src/main/java/net/minecraft/server/network/ServerGamePacketListenerImpl.java
 +++ b/src/main/java/net/minecraft/server/network/ServerGamePacketListenerImpl.java
 @@ -776,6 +776,13 @@ public class ServerGamePacketListenerImpl implements ServerPlayerConnection, Tic
